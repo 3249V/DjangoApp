@@ -35,11 +35,9 @@ psycopg2==2.7
 pyaml==20.3.1
 pycparser==2.20
 pycryptodome==3.9.7
-pypiwin32==223
 python-dateutil==2.8.1
 python-jose==2.0.2
 pytz==2019.3
-pywin32==227
 PyYAML==5.3.1
 requests==2.23.0
 responses==0.10.12
