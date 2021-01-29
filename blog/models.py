@@ -11,6 +11,7 @@ class Post(models.Model):
     media = models.FileField(upload_to='mememedia/')
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    media = models.FileField(upload_to='mememedia/',default="")
 
     def __str__(self):
         return self.title
