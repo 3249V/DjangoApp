@@ -14,7 +14,13 @@
             {% endif %}
         </div>
         <h2 class="article-title">{{ object.title }}</h2>
-        <p class="article-content">{{ object.content }}</p>
+      {% if ".mp4" in post.media.url %}
+                    <video controls width="250">
+                    <source src="{{ post.media.url }}">
+                    </video>
+      {% elif ".png" in post.media.url or ".jpg" in post.media.url %}
+                    <img src="{{ post.media.url }}" width=100%>
+      {% endif %}
       </div>
     </article>
 {% endblock content %}
