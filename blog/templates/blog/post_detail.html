@@ -14,7 +14,6 @@
             {% endif %}
         </div>
         <h2 class="article-title">{{ object.title }}</h2>
-        <p class="article-content">{{ object.content }}</p>
       {% if ".mp4" in post.media.url %}
                     <video controls width="250">
                     <source src="{{ post.media.url }}">
