@@ -12,6 +12,12 @@ ul {
   margin: 0;
 }
 
+p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 .bg-steel {
   background-color: #ff6700;
 }
@@ -81,4 +87,16 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+.overflow {
+  width: 10em;
+  outline: 1px solid #000;
+  margin: 0 0 2em 0;
+
+  /**
+   * Required properties to achieve text-overflow
+   */
+      white-space: nowrap;
+    overflow: hidden;
 }
