@@ -5,8 +5,8 @@ from django.urls import reverse
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
+    title = models.CharField(max_length=40)
+    content = models.TextField(max_length=100)
 
     media = models.FileField(upload_to='mememedia/')
     date_posted = models.DateTimeField(default=timezone.now)
