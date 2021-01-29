@@ -9,7 +9,15 @@
               <small class="text-muted">{{ post.date_posted|date:"N d, Y" }}</small>
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
+              <style>.ellipsis { text-overflow: ellipsis; }</style>
+                <p class="article-content">{{ post.content }}</p>
+                {% if ".mp4" in post.media.url %}
+                    <video controls width="250">
+                    <source src="{{ post.media.url }}">
+                    </video>
+                {% elif ".png" in post.media.url or ".jpg" in post.media.url %}
+                    <img src="{{ post.media.url }}" width="250">
+                {% endif %}
           </div>
         </article>
     {% endfor %}
