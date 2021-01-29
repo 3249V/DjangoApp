@@ -16,11 +16,10 @@
         <h2 class="article-title">{{ object.title }}</h2>
         <p3 class="article-content">{{ object.content }}</p3>
       {% if ".mp4" in post.media.url %}
-
-                    <video controls width="100%>
+          <video controls width=100%>
 
                     <source src="{{ post.media.url }}">
-                    </video>
+          </video>
       {% elif ".png" in post.media.url or ".jpg" in post.media.url %}
                     <img src="{{ post.media.url }}" width=100%>
       {% endif %}
