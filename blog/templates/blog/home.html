@@ -10,14 +10,13 @@
             </div>
 
 
-              <style>.ellipsis { text-overflow: ellipsis;
-               /* BOTH of the following are required for text-overflow */
-
+              <style> .ellipsis { text-overflow: ellipsis;}
+               /* BOTH of the following are required for text-overflow *
 
               }
               </style>
-                <h2><a class="article-title overflow-visible" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-                <p class="article-content overflow-visible">{{post.content }}</p>
+                <h2><a class="article-title overflow-visible ellipsis" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                <p class="article-content overflow-visible ellipsis">{{post.content }}</p>
                 {% if ".mp4" in post.media.url %}
                     <video controls width=100%>
                     <source src="{{ post.media.url }}">
