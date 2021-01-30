@@ -28,6 +28,7 @@ class UserPostListView(ListView):
     paginate_by = 5
 
     def get_query_set(self):
+        print("BEGINNING OF FUNCTION")
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         print(f"USER: {user}")
         return Post.objects.filter(author=user).order_by('-date_posted')
@@ -40,8 +41,6 @@ class PostDetailView(DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'content', 'media']
-
-
 
     def form_valid(self, form):
         form.instance.author = self.request.user
