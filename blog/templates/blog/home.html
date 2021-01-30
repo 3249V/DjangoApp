@@ -13,11 +13,11 @@
             </div>
                 <h2><a class="article-title overflow-visible ellipsis" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
                 <p class="article-content overflow-visible ellipsis">{{post.content }}</p>
-                {% if ".mp4" in post.media.url %}
+                {% if ".mp4" in post.media.url|lower %}
                     <video controls width=100%>
                     <source src="{{ post.media.url }}">
                     </video>
-                {% elif ".png" in post.media.url or ".jpg" in post.media.url or ".gif" in post.media.url %}
+                {% elif ".png" in post.media.url|lower or ".jpg" in post.media.url|lower or ".gif" in post.media.url|lower %}
                     <img src="{{ post.media.url }}" >
                 {% endif %}
           </div>
