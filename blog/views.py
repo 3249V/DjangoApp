@@ -43,7 +43,6 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        TestForm.clean_file(form)
         print("VALID FORM")
 
         return super().form_valid(form)
