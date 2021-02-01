@@ -1,5 +1,5 @@
 from django import forms
-from blog.models import Post
+from .models import Post
 from django.core.exceptions import ValidationError
 
 class TestForm(forms.ModelForm):
