@@ -4,11 +4,11 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from blog.forms import TestForm
 
+
 class Post(models.Model):
     title = models.CharField(max_length=40)
     content = models.TextField(max_length=100, blank=True)
     form_class = TestForm
-    media = models.FileField(upload_to='mememedia/')
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     media = models.FileField(upload_to='mememedia/',default="")
