@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
-
+from django.core.exceptions import ValidationError
 
 class Post(models.Model):
     title = models.CharField(max_length=40)
@@ -13,6 +13,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    def clean(self):
+        megabyte_limit = 5.0
+        print(self.media.size)
+        if self.media.size > megabyte_limit * 1024 * 1024:
+            raise ValidationError("Max file size is %sMB" % str(megabyte_limit))
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
