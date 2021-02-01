@@ -10,3 +10,4 @@ class TestForm(forms.ModelForm):
             raise ValidationError("Max file size is %sMB" % str(megabyte_limit))
     class Meta:
         model = Post
+        fields = ['title', 'content', 'media']
