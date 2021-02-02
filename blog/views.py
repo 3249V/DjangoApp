@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 from .forms import TestForm
+from django.db.models import Q
 
 def home(request):
     context = {
@@ -72,8 +73,17 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
+
 class SearchResultsView(ListView):
     template_name = 'blog/search_results.html'
+    model = Post
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = Post.objects.filter(
+            Q(title__icontains=query)
+        )
+        return object_list
+
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
