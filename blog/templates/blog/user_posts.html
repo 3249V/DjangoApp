@@ -3,9 +3,11 @@
 {% block content %}
     <h1 class="mb-3">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }} posts)</h1>
     {% for post in posts %}
+        <style> .ellipsis { text-overflow: ellipsis; box-sizing:border-box; overflow-wrap: anywhere;}
+              </style>
         <article class="media content-section">
             <img class="rounded-circle article-img" src="{{  post.author.profile.image.url }}" alt="">
-          <div class="media-body">
+          <div class="media-body .ellipsis" >
             <div class="article-metadata">
               <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
               {% localtime on %}
