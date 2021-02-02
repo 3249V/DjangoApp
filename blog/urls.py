@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, UserPostListView
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, UserPostListView, SearchResultsView
 from . import views
 from django.views.generic.base import RedirectView
 from django.contrib.staticfiles.storage import staticfiles_storage
