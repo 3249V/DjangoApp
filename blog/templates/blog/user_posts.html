@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load tz %}
 {% block content %}
     <h1 class="mb-3">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }} posts)</h1>
     {% for post in posts %}
@@ -7,10 +8,23 @@
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-              <small class="text-muted">{{ post.date_posted|date:"N d, Y" }}</small>
+              {% localtime on %}
+                    {% if post.date_posted.today|date:"N d, Y" == post.date_posted|date:"N d, Y"%}
+                        <small class="text-muted"> Today {{ post.date_posted|date:"g:i A" }}</small>
+                    {% else %}
+                        <small class="text-muted">{{ post.date_posted|date:"N d, Y   g:i A" }}</small>
+                    {% endif %}
+                {% endlocaltime %}
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <p class="article-content">{{ post.content }}</p>
+              {% if ".mp4" in post.media.url|lower %}
+                    <video controls width=100%>
+                    <source src="{{ post.media.url }}">
+                    </video>
+                {% elif ".png" in post.media.url|lower or ".jpg" in post.media.url|lower or ".gif" in post.media.url|lower %}
+                    <img src="{{ post.media.url }}" >
+                {% endif %}
           </div>
         </article>
     {% endfor %}
