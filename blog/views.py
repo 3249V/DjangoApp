@@ -77,6 +77,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class SearchResultsView(ListView):
     template_name = 'blog/search_results.html'
     model = Post
+
     def get_queryset(self):
         query = self.request.GET.get('q')
         object_list = Post.objects.filter(
