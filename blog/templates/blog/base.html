@@ -36,7 +36,7 @@
         <!-- Navbar Right Side -->
         <div class="navbar-nav">
             <form action="{% url 'search_results' %}" method="get">
-                <input type="text" name="q" size="30" placeholder="WOOOOGA">
+                <input type="text" name="q" size="30" placeholder="Search...">
             </form>
             {% if user.is_authenticated %}
                 <a class="nav-item nav-link" href="{% url 'post-create' %}">Upload</a>
