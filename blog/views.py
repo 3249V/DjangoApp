@@ -40,7 +40,6 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = TestForm
 
-
     def form_valid(self, form):
         form.instance.author = self.request.user
         print("VALID FORM")
