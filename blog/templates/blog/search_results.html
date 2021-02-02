@@ -1,8 +1,8 @@
 {% extends "blog/base.html" %}
 <ul>
-  {% for city in object_list %}
+  {% for post in object_list %}
     <li>
-      {{ city.name }}, {{ city.state }}
+      {{ post.title }}
     </li>
   {% endfor %}
 </ul>
