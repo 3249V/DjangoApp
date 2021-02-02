@@ -72,6 +72,8 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
+class SearchResultsView(ListView):
+    template_name = 'blog/search_results.html'
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})

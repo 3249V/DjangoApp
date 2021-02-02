@@ -13,6 +13,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
     def clean(self):
         megabyte_limit = 5.0
         print(self.media.size)
