@@ -5,7 +5,11 @@
       <div class="media-body">
         <div class="article-metadata">
           <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
-          <small class="text-muted">{{ object.date_posted|date:"N d, Y" }}</small>
+          {% if post.date_posted.today %}
+                        <small class="text-muted">Today {{ post.date_posted|date: "g:i A" }}</small>
+                    {% else %}
+                        <small class="text-muted">{{ post.date_posted|date:"N d, Y   g:i A" }}</small>
+                    {% endif %}
             {% if object.author == user %}
                 <div>
                 <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>

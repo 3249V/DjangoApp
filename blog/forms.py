@@ -2,6 +2,7 @@ from django import forms
 from .models import Post
 from django.core.exceptions import ValidationError
 
+
 class TestForm(forms.ModelForm):
     def clean_file(self, form):
         megabyte_limit = 5.0
