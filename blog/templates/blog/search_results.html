@@ -1,6 +1,6 @@
 {% extends "blog/base.html" %}
 {% block content %}
-
+{% load tz %}
 <ul>
   {% for post in object_list %}
         <style> .ellipsis { text-overflow: ellipsis; box-sizing:border-box; overflow-wrap: anywhere;}
