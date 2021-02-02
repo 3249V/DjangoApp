@@ -7,7 +7,7 @@
               </style>
         <article class="media content-section">
             <img class="rounded-circle article-img" src="{{  post.author.profile.image.url }}" alt="">
-          <div class="media-body .ellipsis" >
+          <div class="media-body w-100 .ellipsis" >
             <div class="article-metadata">
               <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
               {% localtime on %}
