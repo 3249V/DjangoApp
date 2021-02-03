@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.core.exceptions import ValidationError
-
+from django.shortcuts import redirect
 
 class Post(models.Model):
     title = models.CharField(max_length=40)
@@ -29,3 +29,6 @@ class Suggestion(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField(max_length=100, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('blog-home')

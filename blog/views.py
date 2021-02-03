@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Suggestion
-from .forms import TestForm
+from .forms import TestForm, SuggestionForm
 from django.db.models import Q
 
 def home(request):
@@ -44,7 +44,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         print("VALID FORM")
-
+        print(self.request.user)
         return super().form_valid(form)
 
 
@@ -93,8 +93,10 @@ def about(request):
 class suggestion(LoginRequiredMixin, CreateView):
     template_name = 'blog/suggestion.html'
     model = Suggestion
-    fields = ['title', 'content']
+
+    form_class = SuggestionForm
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        print(self.request.user)
         return super().form_valid(form)

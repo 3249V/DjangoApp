@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, reverse
 from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, UserPostListView, SearchResultsView, suggestion
 from . import views
 from django.views.generic.base import RedirectView
@@ -12,7 +12,7 @@ urlpatterns = [
     path('post/<int:pk>/update/',PostUpdateView.as_view(), name='post-update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('about/', views.about, name='blog-about'),
-    path('suggestion', suggestion.as_view(), name='blog-suggestion'),
+    path('suggestion', suggestion.as_view(success_url=reverse('blog-home')), name='blog-suggestion'),
     path(
         "favicon.ico",
         RedirectView.as_view(url=staticfiles_storage.url("favicon.ico")),
