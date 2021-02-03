@@ -90,7 +90,11 @@ def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
 
-class suggestion(CreateView):
+class suggestion(LoginRequiredMixin, CreateView):
     template_name = 'blog/suggestion.html'
     model = Suggestion
     fields = ['title', 'content']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
