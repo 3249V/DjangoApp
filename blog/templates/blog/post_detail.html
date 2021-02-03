@@ -19,7 +19,7 @@
         </div>
         <h2 class="article-title">{{ object.title }}</h2>
         <p3 class="article-content">{{ object.content }}</p3>
-      {% if ".mp4" in post.media.url %}
+      {% if ".mp4" in post.media.url or ".mov" in post.media.url|lower%}
           <video controls width=100%>
 
                     <source src="{{ post.media.url }}">
