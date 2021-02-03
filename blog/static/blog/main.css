@@ -27,6 +27,7 @@ p {
 }
 .overflow-visible {
   white-space: initial;
+  overflow-wrap: anywhere;
 }
 .bg-steel {
   background-color: #000000;
