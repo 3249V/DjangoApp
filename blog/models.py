@@ -29,6 +29,11 @@ class Suggestion(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField(max_length=100, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    success_url = "/"
+    
+    def __str__(self):
+        return f"{self.author}: {self.title}"
+
 
     def get_absolute_url(self):
         return reverse('blog-home')
