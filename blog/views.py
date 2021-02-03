@@ -91,6 +91,6 @@ def about(request):
 
 
 class suggestion(CreateView):
-    template_name = 'blog/suggestion'
+    template_name = 'blog/suggestion.html'
     model = Suggestion
     fields = ['title', 'content']
