@@ -90,5 +90,5 @@ def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
 def suggestion(CreateView):
-
+    template_name = 'blog/suggestion'
     model = Suggestion
