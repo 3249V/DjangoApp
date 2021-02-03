@@ -12,6 +12,7 @@ urlpatterns = [
     path('post/<int:pk>/update/',PostUpdateView.as_view(), name='post-update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('about/', views.about, name='blog-about'),
+    path('suggestion', views.suggestion, name='blog-suggestion'),
     path(
         "favicon.ico",
         RedirectView.as_view(url=staticfiles_storage.url("favicon.ico")),

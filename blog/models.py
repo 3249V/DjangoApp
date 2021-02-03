@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.core.exceptions import ValidationError
 
+
 class Post(models.Model):
     title = models.CharField(max_length=40)
     content = models.TextField(max_length=100, blank=True)
@@ -24,3 +25,7 @@ class Post(models.Model):
         return reverse('post-detail', kwargs={'pk': self.pk})
 
 
+class Suggestion(models.Model):
+    title = models.CharField(max_length=30)
+    content = models.TextField(max_length=100, blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
