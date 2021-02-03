@@ -89,6 +89,7 @@ class SearchResultsView(ListView):
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
-def suggestion(CreateView):
+
+class suggestion(CreateView):
     template_name = 'blog/suggestion'
     model = Suggestion
