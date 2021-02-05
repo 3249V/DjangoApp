@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'storages',
     'awesome_django_timezones',
+    'taggit',
 ]
 
 MIDDLEWARE = [

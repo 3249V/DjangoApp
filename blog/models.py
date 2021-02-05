@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.core.exceptions import ValidationError
 from django.shortcuts import redirect
-
+from taggit.managers import TaggableManager
 
 class Post(models.Model):
     title = models.CharField(max_length=40)
@@ -12,7 +12,7 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     media = models.FileField(upload_to='mememedia/',default="")
-
+    tags = TaggableManager
     def __str__(self):
         return self.title
 
