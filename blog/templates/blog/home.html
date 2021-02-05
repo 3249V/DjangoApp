@@ -9,7 +9,11 @@
           <div class="media-body w-100 .elipsis">
             <div class="article-metadata">
               <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-                {% localtime off %}
+            <p1>{{ post.date_posted.today|date:"N d, Y"  }} </p1>
+            <p1>{{ post.date_posted|date:"N d, Y" }}</p1>
+                {% localtime on %}
+                    <p1>{{ post.date_posted.today|date:"N d, Y"  }} </p1>
+                    <p1>{{ post.date_posted|date:"N d, Y" }}</p1>
                     {% if post.date_posted.today|date:"N d, Y" == post.date_posted|date:"N d, Y"%}
                         <small class="text-muted"> Today {{ post.date_posted|date:"g:i A" }}</small>
                     {% else %}
