@@ -12,7 +12,7 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     media = models.FileField(upload_to='mememedia/',default="")
-    tags = TaggableManager
+    tags = TaggableManager()
     def __str__(self):
         return self.title
 
