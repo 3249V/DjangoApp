@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.core.exceptions import ValidationError
 from django.shortcuts import redirect
 
+
 class Post(models.Model):
     title = models.CharField(max_length=40)
     content = models.TextField(max_length=100, blank=True)
@@ -30,7 +31,7 @@ class Suggestion(models.Model):
     content = models.TextField(max_length=100, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     success_url = "/"
-    
+
     def __str__(self):
         return f"{self.author}: {self.title}"
 
