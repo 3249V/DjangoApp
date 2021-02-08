@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post, Suggestion
 from .forms import TestForm, SuggestionForm
 from django.db.models import Q
+from django.db.models.functions import Lower
 
 def home(request):
     context = {
@@ -77,14 +78,16 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class SearchResultsView(ListView):
     template_name = 'blog/search_results.html'
     model = Post
+    ordering = ['date_posted']
 
     def get_queryset(self):
         query = self.request.GET.get('q')
+
         object_list = Post.objects.filter(
-            Q(title__icontains=query) | Q(tags__name=query)
+            Q(title__icontains=query) | Q(tags__name__iexact=query)
         )
 
-        return object_list
+        return object_list.order_by('-date_posted')
 
 
 def about(request):
