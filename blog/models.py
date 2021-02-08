@@ -6,6 +6,7 @@ from django.core.exceptions import ValidationError
 from django.shortcuts import redirect
 from taggit.managers import TaggableManager
 
+
 class Post(models.Model):
     title = models.CharField(max_length=40)
     content = models.TextField(max_length=100, blank=True)
@@ -34,7 +35,6 @@ class Suggestion(models.Model):
 
     def __str__(self):
         return f"{self.author}: {self.title}"
-
 
     def get_absolute_url(self):
         return reverse('blog-home')

@@ -13,7 +13,7 @@ class TestForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title', 'content', 'media']
+        fields = ['title', 'content', 'media', 'tags']
 
 
 class SuggestionForm(forms.ModelForm):
