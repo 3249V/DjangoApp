@@ -7,7 +7,7 @@ from taggit.models import Tag
 from .forms import TestForm, SuggestionForm
 from django.db.models import Q
 from django.db.models.functions import Lower
-from dal import autocomplete
+#from dal import autocomplete
 
 def home(request):
     context = {
@@ -95,7 +95,7 @@ class SearchResultsView(ListView):
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
-
+"""
 class TagAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
 
@@ -108,7 +108,7 @@ class TagAutocomplete(autocomplete.Select2QuerySetView):
             qs = qs.filter(name__istartswith=self.q)
 
         return qs
-
+"""
 class suggestion(LoginRequiredMixin, CreateView):
     template_name = 'blog/suggestion.html'
     model = Suggestion

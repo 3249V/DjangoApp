@@ -2,7 +2,7 @@ from django import forms
 from .models import Post, Suggestion
 from taggit.models import Tag
 from django.core.exceptions import ValidationError
-from dal import autocomplete
+#from dal import autocomplete
 
 class TestForm(forms.ModelForm):
     def clean_file(self, form):
