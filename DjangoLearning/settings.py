@@ -36,8 +36,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'dal',
-    'dal_select2',
+    #'dal',
+    #'dal_select2',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
