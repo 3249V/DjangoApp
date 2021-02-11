@@ -18,4 +18,5 @@ urlpatterns = [
         RedirectView.as_view(url=staticfiles_storage.url("favicon.ico")),
     ),
     path('search/', SearchResultsView.as_view(), name='search_results'),
+    #path(r'^tag-autocomplete/$', views.TagAutocomplete.as_view(), name="tag-autocomplete")
 ]
