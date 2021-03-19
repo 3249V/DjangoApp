@@ -29,7 +29,7 @@ jsonpickle==1.3
 MarkupSafe==1.1.1
 mock==4.0.2
 moto==1.3.7
-Pillow==7.0.0
+Pillow==8.1.1
 pipenv==2018.11.26
 psycopg2==2.7.3.2
 pyaml==20.3.1
